@@ -35,7 +35,7 @@ export default {
 #green-box-background{
   position: absolute;
   z-index: 0;
-  background: linear-gradient(0deg, rgba(0,156,0,1) 0%, rgba(0,156,0,1) 75%, rgba(0,255,0,1) 90%, rgba(0,255,0,0.8) 100%);
+  background: linear-gradient(0deg, rgba(0,160,0,1) 0%, rgba(0,180,0,1) 85%, rgba(0,155,0,1) 100%);
   height: 30vh;
   top: 70vh;
   width: 100vw;

@@ -1,75 +1,76 @@
 <template>
-  <div>
-    <v-card v-if="greenPassData">
-      <v-card-title>General Data</v-card-title>
-      <v-card-text>
-        <report-table>
+  <v-card
+    v-if="greenPassData"
+    class="pa-2"
+  >
+    <v-card-title>General Data</v-card-title>
+    <v-card-text>
+      <report-table>
+        <tr>
+          <td>Valid certificate</td>
+          <td>{{ isValidCertificate }}</td>
+        </tr>
+        <template v-if="greenPassData.nominative">
           <tr>
-            <td>Valid certificate</td>
-            <td>{{ isValidCertificate }}</td>
-          </tr>
-          <template v-if="greenPassData.nominative">
-            <tr>
-              <td>Name</td>
-              <td>{{ greenPassData.nominative.gn }}</td>
-            </tr>
-            <tr>
-              <td>Surname</td>
-              <td>{{ greenPassData.nominative.fn }}</td>
-            </tr>
-          </template>
-          <tr>
-            <td>Country</td>
-            <td>{{ greenPassData.nation }}</td>
+            <td>Name</td>
+            <td>{{ greenPassData.nominative.gn }}</td>
           </tr>
           <tr>
-            <td>Date of birth</td>
-            <td>{{ greenPassData.dateOfBirth }}</td>
+            <td>Surname</td>
+            <td>{{ greenPassData.nominative.fn }}</td>
           </tr>
-        </report-table>
-        <v-divider class="my-5" />
-        <v-expansion-panels
-          id="green-pass-results-expansion-panels"
-          style="width: 100%"
-          flat
-          multiple
-        >
-          <v-expansion-panel v-if="greenPassData.vaccines">
-            <v-expansion-panel-header>
-              Vaccine
-            </v-expansion-panel-header>
-            <v-expansion-panel-content>
-              <results-vaccine :vaccine="greenPassData.vaccines" />
-            </v-expansion-panel-content>
-          </v-expansion-panel>
-          <v-expansion-panel v-if="greenPassData.tests">
-            <v-expansion-panel-header>
-              Test
-            </v-expansion-panel-header>
-            <v-expansion-panel-content>
-              <results-test :test="greenPassData.tests" />
-            </v-expansion-panel-content>
-          </v-expansion-panel>
-          <v-expansion-panel v-if="greenPassData.recover">
-            <v-expansion-panel-header>
-              Recover
-            </v-expansion-panel-header>
-            <v-expansion-panel-content>
-              <results-recover :recover="greenPassData.recover" />
-            </v-expansion-panel-content>
-          </v-expansion-panel>
-          <v-expansion-panel v-if="certificate">
-            <v-expansion-panel-header>
-              Certificate information
-            </v-expansion-panel-header>
-            <v-expansion-panel-content>
-              <results-signer-data :certificate="certificate" />
-            </v-expansion-panel-content>
-          </v-expansion-panel>
-        </v-expansion-panels>
-      </v-card-text>
-    </v-card>
-  </div>
+        </template>
+        <tr>
+          <td>Country</td>
+          <td>{{ greenPassData.nation }}</td>
+        </tr>
+        <tr>
+          <td>Date of birth</td>
+          <td>{{ greenPassData.dateOfBirth }}</td>
+        </tr>
+      </report-table>
+      <v-divider class="my-5" />
+      <v-expansion-panels
+        id="green-pass-results-expansion-panels"
+        style="width: 100%"
+        flat
+        multiple
+      >
+        <v-expansion-panel v-if="greenPassData.vaccines">
+          <v-expansion-panel-header>
+            Vaccine
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <results-vaccine :vaccine="greenPassData.vaccines" />
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+        <v-expansion-panel v-if="greenPassData.tests">
+          <v-expansion-panel-header>
+            Test
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <results-test :test="greenPassData.tests" />
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+        <v-expansion-panel v-if="greenPassData.recover">
+          <v-expansion-panel-header>
+            Recover
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <results-recover :recover="greenPassData.recover" />
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+        <v-expansion-panel v-if="certificate">
+          <v-expansion-panel-header>
+            Certificate information
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <results-signer-data :certificate="certificate" />
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-expansion-panels>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>
@@ -114,6 +115,20 @@ export default {
 }
 </style>
 <style>
+#green-pass-results-expansion-panels .v-expansion-panel {
+  border-bottom: 1px solid rgba(0,0,0, 0.12);
+  padding: 0.5em 0;
+}
+
+#green-pass-results-expansion-panels .v-expansion-panel:last-child {
+  border-bottom: 0;
+}
+
+#green-pass-results-expansion-panels .v-expansion-panel-header {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
 #green-pass-results-expansion-panels .v-expansion-panel-content,
 #green-pass-results-expansion-panels .v-expansion-panel-content > .v-expansion-panel-content__wrap{
   padding: 0 !important;
