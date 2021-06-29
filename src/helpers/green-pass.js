@@ -73,6 +73,11 @@ class GreenPassCertificate {
     await fetch('../certificate_list.json')
       .then(response => response.json())
       .then(data => { certificate = data[this.kid] })
+
+    if (!certificate) {
+      throw Error('Certificate not found')
+    }
+
     return verifySignature(certificate, validationData, this.cbor.signature)
   }
 }

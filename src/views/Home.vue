@@ -1,6 +1,6 @@
 <template>
   <v-container id="home-container">
-    <v-card>
+    <v-card class="pa-3">
       <v-card-title>Scan the certificate</v-card-title>
       <v-divider />
       <v-card-text>
@@ -68,7 +68,7 @@ export default {
 
 <style scoped>
 #home-container{
-  height: inherit;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-content: center;
