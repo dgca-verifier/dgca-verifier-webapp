@@ -17,7 +17,7 @@ export default {
 </script>
 <style>
 #v-app > .v-application--wrap{
-  height: 100vh;
+  min-height: 100vh;
   background: #fafafa;
   display: block;
   z-index: 0;
@@ -25,7 +25,7 @@ export default {
 }
 
 #main-container{
-  height: 100vh;
+  height: inherit;
   padding: 0;
   z-index: 1;
   position: relative;
@@ -33,7 +33,7 @@ export default {
 }
 
 #green-box-background{
-  position: absolute;
+  position: fixed;
   z-index: 0;
   background: linear-gradient(0deg, rgba(0,160,0,1) 0%, rgba(0,180,0,1) 85%, rgba(0,155,0,1) 100%);
   height: 30vh;
