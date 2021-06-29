@@ -12,6 +12,18 @@
       <td>Certificate Valid Until</td>
       <td>{{ recover.du }}</td>
     </tr>
+    <tr>
+      <td>Country of Vaccination</td>
+      <td>{{ recover.co }}</td>
+    </tr>
+    <tr>
+      <td>Certificate Issuer</td>
+      <td>{{ recover.is }}</td>
+    </tr>
+    <tr>
+      <td>Unique Identifier: UVCI</td>
+      <td>{{ recover.ci }}</td>
+    </tr>
   </report-table>
 </template>
 
