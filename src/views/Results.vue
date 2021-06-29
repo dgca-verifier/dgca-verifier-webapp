@@ -75,7 +75,7 @@
         </v-expansion-panel>
         <v-expansion-panel v-if="certificate">
           <v-expansion-panel-header>
-            Certificate information
+            Signer information
           </v-expansion-panel-header>
           <v-expansion-panel-content>
             <results-signer-data :certificate="certificate" />
@@ -99,7 +99,7 @@ export default {
   components: { ReportTable, ResultsSignerData, ResultsVaccine, ResultsTest, ResultsRecover },
   data: () => ({
     isValidCertificate: null,
-    certificate: {},
+    certificate: null,
     greenPass: null,
     greenPassData: {}
   }),
@@ -114,6 +114,8 @@ export default {
     this.greenPass.verify().then((val) => {
       this.isValidCertificate = val.verified
       this.certificate = val.certificate
+    }).catch(e => {
+      alert(e.message)
     })
   }
 }
