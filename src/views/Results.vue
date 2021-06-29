@@ -7,8 +7,21 @@
     <v-card-text>
       <report-table>
         <tr>
-          <td>Valid certificate</td>
-          <td>{{ isValidCertificate }}</td>
+          <td>Signature status</td>
+          <td>
+            <v-icon
+              v-if="!isValidCertificate"
+              color="red"
+            >
+              mdi-close
+            </v-icon>
+            <v-icon
+              v-else
+              color="green"
+            >
+              mdi-check
+            </v-icon>
+          </td>
         </tr>
         <template v-if="greenPassData.nominative">
           <tr>
@@ -110,13 +123,14 @@ export default {
 .green-pass-table tr > td:first-child {
   font-weight: bold;
 }
+
 .green-pass-table tr > td:nth-child(2) {
   text-align: right;
 }
 </style>
 <style>
 #green-pass-results-expansion-panels .v-expansion-panel {
-  border-bottom: 1px solid rgba(0,0,0, 0.12);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   padding: 0.5em 0;
 }
 
@@ -130,7 +144,7 @@ export default {
 }
 
 #green-pass-results-expansion-panels .v-expansion-panel-content,
-#green-pass-results-expansion-panels .v-expansion-panel-content > .v-expansion-panel-content__wrap{
+#green-pass-results-expansion-panels .v-expansion-panel-content > .v-expansion-panel-content__wrap {
   padding: 0 !important;
 }
 </style>
