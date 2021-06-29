@@ -2,11 +2,11 @@
   <report-table>
     <tr>
       <td>Issuer</td>
-      <td>{{ `${certificate.issuer.country}, ${certificate.issuer.org}, ${certificate.issuer.cn}` }}</td>
+      <td>{{ `C=${certificate.issuer.country}, O=${certificate.issuer.org}, CN=${certificate.issuer.cn}` }}</td>
     </tr>
     <tr>
       <td>Subject</td>
-      <td>{{ `${certificate.subject.country}, ${certificate.subject.org}, ${certificate.subject.cn}` }}</td>
+      <td>{{ `C=${certificate.subject.country}, O=${certificate.subject.org}, CN=${certificate.subject.cn}` }}</td>
     </tr>
     <tr>
       <td>Not Before</td>
