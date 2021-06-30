@@ -26,7 +26,7 @@
     </v-list-item>
     <v-list-item>
       <v-list-item-content>
-        <v-list-item-title>Counv-list-itemy of Vaccination</v-list-item-title>
+        <v-list-item-title>Country of Vaccination</v-list-item-title>
         <v-list-item-content>{{ vaccine.co }}</v-list-item-content>
       </v-list-item-content>
     </v-list-item>
