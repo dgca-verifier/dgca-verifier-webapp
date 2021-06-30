@@ -3,13 +3,14 @@
     <v-card class="pa-3">
       <v-card-title>Scan the certificate</v-card-title>
       <v-divider />
-      <v-card-text>
+      <v-card-text id="qr-code-scanner-container">
         <div
           v-if="!camera.enable"
-          id="home-container-button"
+          id="qr-code-scanner-button"
           class="pa-16"
         >
           <v-btn
+            x-large
             color="primary"
             @click="camera.enable=true"
           >
@@ -66,7 +67,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '~vuetify/src/styles/settings/_variables';
+
 #home-container{
   height: 100%;
   display: flex;
@@ -75,11 +78,44 @@ export default {
   justify-content: center;
 }
 
-#home-container-button {
+#qr-code-scanner-button {
   display: flex;
   justify-content: center;
   background-image: url("../assets/example-qr.png");
   background-size: contain;
   background-position: center;
 }
+
+@media #{map-get($display-breakpoints, 'sm-and-down')} {
+  #home-container {
+    padding: 0 !important;
+    height: 100%;
+
+    > .v-card {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  #home-container > div {
+    height: 100%;
+  }
+
+  #qr-code-scanner-container {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-content: center;
+  }
+
+  #qr-code-scanner-button{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+
+  #qr-code-scanner-button {
+    background-size: 70%;
+  }
+}
+
 </style>

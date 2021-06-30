@@ -5,43 +5,53 @@
   >
     <v-card-title>General Data</v-card-title>
     <v-card-text>
-      <report-table>
-        <tr>
-          <td>Signature status</td>
-          <td>
-            <v-icon
-              v-if="!isValidCertificate"
-              color="red"
-            >
-              mdi-close
-            </v-icon>
-            <v-icon
-              v-else
-              color="green"
-            >
-              mdi-check
-            </v-icon>
-          </td>
-        </tr>
+      <v-list>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title>Signature status</v-list-item-title>
+            <v-list-item-content style="display:block;">
+              <v-icon
+                v-if="!isValidCertificate"
+                color="red"
+              >
+                mdi-close
+              </v-icon>
+              <v-icon
+                v-else
+                color="green"
+              >
+                mdi-check
+              </v-icon>
+            </v-list-item-content>
+          </v-list-item-content>
+        </v-list-item>
         <template v-if="greenPassData.nominative">
-          <tr>
-            <td>Name</td>
-            <td>{{ greenPassData.nominative.gn }}</td>
-          </tr>
-          <tr>
-            <td>Surname</td>
-            <td>{{ greenPassData.nominative.fn }}</td>
-          </tr>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Name</v-list-item-title>
+              <v-list-item-content>{{ greenPassData.nominative.gn }}</v-list-item-content>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Surname</v-list-item-title>
+              <v-list-item-content>{{ greenPassData.nominative.fn }}</v-list-item-content>
+            </v-list-item-content>
+          </v-list-item>
         </template>
-        <tr>
-          <td>Country</td>
-          <td>{{ greenPassData.nation }}</td>
-        </tr>
-        <tr>
-          <td>Date of birth</td>
-          <td>{{ greenPassData.dateOfBirth }}</td>
-        </tr>
-      </report-table>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title>Country</v-list-item-title>
+            <v-list-item-content>{{ greenPassData.nation }}</v-list-item-content>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title>Date of birth</v-list-item-title>
+            <v-list-item-content>{{ greenPassData.dateOfBirth }}</v-list-item-content>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
       <v-divider class="my-5" />
       <v-expansion-panels
         id="green-pass-results-expansion-panels"
@@ -92,11 +102,10 @@ import ResultsVaccine from '../components/Results/ResultsVaccine'
 import ResultsTest from '../components/Results/ResultsTest'
 import ResultsRecover from '../components/Results/ResultsRecover'
 import ResultsSignerData from '../components/Results/ResultsSignerData'
-import ReportTable from '../components/ReportTable'
 
 export default {
   name: 'Results',
-  components: { ReportTable, ResultsSignerData, ResultsVaccine, ResultsTest, ResultsRecover },
+  components: { ResultsSignerData, ResultsVaccine, ResultsTest, ResultsRecover },
   data: () => ({
     isValidCertificate: null,
     certificate: null,
@@ -122,11 +131,11 @@ export default {
 </script>
 
 <style scoped>
-.green-pass-table tr > td:first-child {
+.green-pass-table tr > v-list-item-title:first-child {
   font-weight: bold;
 }
 
-.green-pass-table tr > td:nth-child(2) {
+.green-pass-table tr > v-list-item-title:nth-child(2) {
   text-align: right;
 }
 </style>

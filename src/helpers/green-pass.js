@@ -75,7 +75,8 @@ class GreenPassCertificate {
       .then(data => { certificate = data[this.kid] })
 
     if (!certificate) {
-      throw Error('Certificate not found')
+      // TODO: create a separate class that extends error
+      throw Error('Issuer not found')
     }
 
     return verifySignature(certificate, validationData, this.cbor.signature)
