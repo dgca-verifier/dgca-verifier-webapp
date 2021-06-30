@@ -15,7 +15,10 @@ export default {
   components: {}
 }
 </script>
-<style>
+
+<style lang="scss">
+@import '~vuetify/src/styles/settings/_variables';
+
 #v-app > .v-application--wrap{
   min-height: 100vh;
   background: #fafafa;
@@ -40,6 +43,13 @@ export default {
   top: 70vh;
   width: 100vw;
   left: 0;
-
 }
+
+@media #{map-get($display-breakpoints, 'sm-and-down')} {
+  #main-container {
+    padding: 1em !important;
+    height: 100%;
+  }
+}
+
 </style>
