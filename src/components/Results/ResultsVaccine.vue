@@ -1,44 +1,56 @@
 <template>
-  <report-table>
-    <tr>
-      <td>Vaccine Name</td>
-      <td>{{ vaccines[vaccine.mp] }}</td>
-    </tr>
-    <tr>
-      <td>Vaccine Date</td>
-      <td>{{ vaccine.dt }}</td>
-    </tr>
-    <tr>
-      <td>Current dose</td>
-      <td>{{ vaccine.dn + "/" + vaccine.sd }}</td>
-    </tr>
-    <tr>
-      <td>Auth Holder</td>
-      <td>{{ holders[vaccine.ma] }}</td>
-    </tr>
-    <tr>
-      <td>Country of Vaccination</td>
-      <td>{{ vaccine.co }}</td>
-    </tr>
-    <tr>
-      <td>Certificate Issuer</td>
-      <td>{{ vaccine.is }}</td>
-    </tr>
-    <tr>
-      <td>Unique Identifier: UVCI</td>
-      <td>{{ vaccine.ci }}</td>
-    </tr>
-  </report-table>
+  <v-list>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>Vaccine Name</v-list-item-title>
+        <v-list-item-content>{{ vaccines[vaccine.mp] }}</v-list-item-content>
+      </v-list-item-content>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>Vaccine Date</v-list-item-title>
+        <v-list-item-content>{{ vaccine.dt }}</v-list-item-content>
+      </v-list-item-content>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>Current dose</v-list-item-title>
+        <v-list-item-content>{{ vaccine.dn + "/" + vaccine.sd }}</v-list-item-content>
+      </v-list-item-content>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>Auth Holder</v-list-item-title>
+        <v-list-item-content>{{ holders[vaccine.ma] }}</v-list-item-content>
+      </v-list-item-content>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>Counv-list-itemy of Vaccination</v-list-item-title>
+        <v-list-item-content>{{ vaccine.co }}</v-list-item-content>
+      </v-list-item-content>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>Certificate Issuer</v-list-item-title>
+        <v-list-item-content>{{ vaccine.is }}</v-list-item-content>
+      </v-list-item-content>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>Unique Identifier: UVCI</v-list-item-title>
+        <v-list-item-content>{{ vaccine.ci }}</v-list-item-content>
+      </v-list-item-content>
+    </v-list-item>
+  </v-list>
 </template>
 
 <script>
-import ReportTable from '../ReportTable'
 import vaccines from '../../assets/vaccines.json'
 import holders from '../../assets/holders.json'
 
 export default {
   name: 'ResultsVaccine',
-  components: { ReportTable },
   props: {
     vaccine: {
       type: Object,

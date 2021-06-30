@@ -1,30 +1,39 @@
 <template>
-  <report-table>
-    <tr>
-      <td>Issuer</td>
-      <td>{{ `C=${certificate.issuer.country}, O=${certificate.issuer.org}, CN=${certificate.issuer.cn}` }}</td>
-    </tr>
-    <tr>
-      <td>Subject</td>
-      <td>{{ `C=${certificate.subject.country}, O=${certificate.subject.org}, CN=${certificate.subject.cn}` }}</td>
-    </tr>
-    <tr>
-      <td>Not Before</td>
-      <td>{{ `${certificate.notBefore.value.toGMTString()}` }}</td>
-    </tr>
-    <tr>
-      <td>Not After</td>
-      <td>{{ `${certificate.notAfter.value.toGMTString()}` }}</td>
-    </tr>
-  </report-table>
+  <v-list>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>Issuer</v-list-item-title>
+        <v-list-item-content>
+          {{ `C=${certificate.issuer.country}, O=${certificate.issuer.org}, CN=${certificate.issuer.cn}` }}
+        </v-list-item-content>
+      </v-list-item-content>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>Subject</v-list-item-title>
+        <v-list-item-content>
+          {{ `C=${certificate.subject.country}, O=${certificate.subject.org}, CN=${certificate.subject.cn}` }}
+        </v-list-item-content>
+      </v-list-item-content>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>Not Before</v-list-item-title>
+        <v-list-item-content>{{ `${certificate.notBefore.value.toGMTString()}` }}</v-list-item-content>
+      </v-list-item-content>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>Not After</v-list-item-title>
+        <v-list-item-content>{{ `${certificate.notAfter.value.toGMTString()}` }}</v-list-item-content>
+      </v-list-item-content>
+    </v-list-item>
+  </v-list>
 </template>
 
 <script>
-import ReportTable from '../ReportTable'
-
 export default {
   name: 'ResultsSignerData',
-  components: { ReportTable },
   props: {
     certificate: {
       type: Object,

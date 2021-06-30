@@ -35,6 +35,7 @@ export default {
 
 <style lang="scss">
 @import '~vuetify/src/styles/settings/_variables';
+@import "assets/style/index.scss";
 
 #v-app > .v-application--wrap{
   min-height: 100vh;

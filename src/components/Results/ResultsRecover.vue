@@ -1,38 +1,47 @@
 <template>
-  <report-table>
-    <tr>
-      <td>First positive NAA test date</td>
-      <td>{{ recover.fr }}</td>
-    </tr>
-    <tr>
-      <td>Certificate Valid From</td>
-      <td>{{ recover.df }}</td>
-    </tr>
-    <tr>
-      <td>Certificate Valid Until</td>
-      <td>{{ recover.du }}</td>
-    </tr>
-    <tr>
-      <td>Country of Vaccination</td>
-      <td>{{ recover.co }}</td>
-    </tr>
-    <tr>
-      <td>Certificate Issuer</td>
-      <td>{{ recover.is }}</td>
-    </tr>
-    <tr>
-      <td>Unique Identifier: UVCI</td>
-      <td>{{ recover.ci }}</td>
-    </tr>
-  </report-table>
+  <v-list>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>First positive NAA test date</v-list-item-title>
+        <v-list-item-content>{{ recover.fr }}</v-list-item-content>
+      </v-list-item-content>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>Certificate Valid From</v-list-item-title>
+        <v-list-item-content>{{ recover.df }}</v-list-item-content>
+      </v-list-item-content>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>Certificate Valid Until</v-list-item-title>
+        <v-list-item-content>{{ recover.du }}</v-list-item-content>
+      </v-list-item-content>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>Country of Vaccination</v-list-item-title>
+        <v-list-item-content>{{ recover.co }}</v-list-item-content>
+      </v-list-item-content>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>Certificate Issuer</v-list-item-title>
+        <v-list-item-content>{{ recover.is }}</v-list-item-content>
+      </v-list-item-content>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>Unique Identifier: UVCI</v-list-item-title>
+        <v-list-item-content>{{ recover.ci }}</v-list-item-content>
+      </v-list-item-content>
+    </v-list-item>
+  </v-list>
 </template>
 
 <script>
-import ReportTable from '../ReportTable'
-
 export default {
   name: 'ResultsRecover',
-  components: { ReportTable },
   props: {
     recover: {
       type: Object,
