@@ -65,9 +65,7 @@ export default {
     onDecode (e) {
       this.$router.push({
         name: 'Results',
-        params: {
-          cert: btoa(e)
-        }
+        params: { qr: e }
       })
     }
   }
