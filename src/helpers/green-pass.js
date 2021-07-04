@@ -62,7 +62,10 @@ class GreenPassCertificate {
   }
 
   toObject () {
-    const data = decodeCBOR(this.cbor.content, { useMaps: true })
+    const data = decodeCBOR(this.cbor.content, {
+      tags: { 0: (cbor) => cbor },
+      useMaps: true
+    })
     return new GreenPassData(data)
   }
 
