@@ -7,15 +7,19 @@
         <div
           v-if="!camera.enable"
           id="qr-code-scanner-button"
-          class="pa-16"
         >
           <v-btn
             x-large
             color="primary"
+            class="my-5"
             @click="camera.enable=true"
           >
             Scan the QR-Code
           </v-btn>
+          <qrcode-capture-button
+            class="my-5"
+            @decode="onDecode"
+          />
         </div>
         <div v-if="enableContainedCamera">
           <qrcode-stream @decode="onDecode" />
@@ -36,13 +40,16 @@
 
 <script>
 import { QrcodeStream } from 'vue-qrcode-reader'
+import QrcodeCaptureButton from '../components/QrcodeCaptureButton'
 
 export default {
   name: 'Home',
-  components: { QrcodeStream },
+  components: { QrcodeCaptureButton, QrcodeStream },
   data: () => ({
     camera: {
       fullscreen: false,
+      stream: false,
+      capture: false,
       enable: false
     }
   }),
@@ -80,10 +87,18 @@ export default {
 
 #qr-code-scanner-button {
   display: flex;
+  align-items: center;
   justify-content: center;
+  flex-direction: column;
   background-image: url("../assets/example-qr.png");
   background-size: contain;
   background-position: center;
+
+  padding: 40px 0;
+}
+
+#qr-code-scanner-button > * {
+  width: 250px;
 }
 
 @media #{map-get($display-breakpoints, 'sm-and-down')} {
@@ -105,16 +120,6 @@ export default {
     flex-grow: 1;
     justify-content: center;
     align-content: center;
-  }
-
-  #qr-code-scanner-button{
-    align-items: center;
-    justify-content: center;
-    display: flex;
-  }
-
-  #qr-code-scanner-button {
-    background-size: 70%;
   }
 }
 
