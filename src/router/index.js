@@ -12,9 +12,17 @@ const routes = [
     component: Home
   },
   {
-    path: '/result/:cert',
+    path: '/result',
     name: 'Results',
-    component: Results
+    component: Results,
+    props: route => ({ qr: route.params.qr }),
+    beforeEnter: (to, from, next) => {
+      if (!to.params.qr) {
+        next({ name: 'Home' })
+      } else {
+        next()
+      }
+    }
   },
   {
     path: '/:pathMatch(.*)',

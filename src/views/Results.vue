@@ -106,17 +106,18 @@ import ResultsSignerData from '../components/Results/ResultsSignerData'
 export default {
   name: 'Results',
   components: { ResultsSignerData, ResultsVaccine, ResultsTest, ResultsRecover },
+  props: {
+    qr: {
+      type: String,
+      required: true
+    }
+  },
   data: () => ({
     isValidCertificate: null,
     certificate: null,
     greenPass: null,
     greenPassData: {}
   }),
-  computed: {
-    qr () {
-      return atob(this.$route.params.cert)
-    }
-  },
   mounted () {
     this.greenPass = new GreenPassCertificate(this.qr)
     this.greenPassData = this.greenPass.toObject()
