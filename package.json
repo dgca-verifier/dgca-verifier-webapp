@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "serve": "npm run certificate-downloader && vue-cli-service serve",
+    "build": "npm run certificate-downloader && vue-cli-service build",
+    "certificate-downloader": "node ci/certificate-downloader.js",
     "lint": "eslint --ext .js,.ts,.vue ./src *.js",
     "lint:fix": "eslint --ext .js,.ts,.vue ./src *.js --fix"
   },
