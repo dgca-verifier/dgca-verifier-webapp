@@ -11,14 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: '3.9'
-      - name: Download certificate
-        run: |
-          cd ./public
-          pip install requests
-          python ../ci/certificate-downloader.py
       - name: Build and Deploy
         uses: Azure/static-web-apps-deploy@v1
         with:
