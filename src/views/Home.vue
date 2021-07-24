@@ -19,6 +19,8 @@
           <qrcode-capture-button
             class="my-5"
             @decode="onDecode"
+            @error:decode="reportError"
+            @error:detect="reportError"
           />
         </div>
         <div v-if="enableContainedCamera">
@@ -40,7 +42,7 @@
 
 <script>
 import { QrcodeStream } from 'vue-qrcode-reader'
-import QrcodeCaptureButton from '../components/QrcodeCaptureButton'
+import QrcodeCaptureButton from '../components/QrcodeUploadButton'
 
 export default {
   name: 'Home',
@@ -67,6 +69,10 @@ export default {
         name: 'Results',
         params: { qr: e }
       })
+    },
+    reportError (msg) {
+      msg = msg ?? 'Qr-Code non rilevato'
+      alert(`Si è verificato un errore nell'analisi del QR\n${msg}`)
     }
   }
 }
