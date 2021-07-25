@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "serve": "npm run certificate-downloader && vue-cli-service serve",
+    "build": "npm run certificate-downloader && vue-cli-service build",
+    "certificate-downloader": "node ci/certificate-downloader.js",
     "lint": "eslint --ext .js,.ts,.vue ./src *.js",
     "lint:fix": "eslint --ext .js,.ts,.vue ./src *.js --fix"
   },
@@ -35,6 +36,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
+    "node-fetch": "^2.6.1",
     "pre-commit": "^1.2.2",
     "sass": "~1.32.0",
     "sass-loader": "^10.0.0",

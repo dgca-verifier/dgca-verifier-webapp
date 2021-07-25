@@ -73,7 +73,7 @@ class GreenPassCertificate {
     const validationData = encodeCBOR(['Signature1', this.cbor.protectedHeader, new Uint8Array(), this.cbor.content])
     let certificate = null
     // TODO save in local storage
-    await fetch('../certificate_list.json')
+    await fetch('../certificate-list.json')
       .then(response => response.json())
       .then(data => { certificate = data[this.kid] })
 
