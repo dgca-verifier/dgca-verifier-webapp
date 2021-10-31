@@ -38,7 +38,7 @@
     </v-list-item>
     <v-list-item>
       <v-list-item-content>
-        <v-list-item-title>Country of Vaccination</v-list-item-title>
+        <v-list-item-title>Country of Test</v-list-item-title>
         <v-list-item-content>{{ test.co }}</v-list-item-content>
       </v-list-item-content>
     </v-list-item>
